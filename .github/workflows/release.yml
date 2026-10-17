@@ -19,17 +19,17 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore Dependencies
-        run: dotnet restore InfiniteLiteToken.sln
+        run: dotnet restore InfiniteLikeToken.sln
 
       - name: Publish Self-Contained Win-X64 Executable
-        run: dotnet publish src/InfiniteLiteToken.UI/InfiniteLiteToken.UI.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish/win-x64
+        run: dotnet publish src/InfiniteLikeToken.UI/InfiniteLikeToken.UI.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish/win-x64
 
       - name: Package Artifacts
-        run: Compress-Archive -Path publish/win-x64/* -DestinationPath InfiniteLiteToken-win-x64.zip
+        run: Compress-Archive -Path publish/win-x64/* -DestinationPath InfiniteLikeToken-win-x64.zip
 
       - name: Create GitHub Release & Upload Asset
         uses: softprops/action-gh-release@v1
         with:
-          files: InfiniteLiteToken-win-x64.zip
+          files: InfiniteLikeToken-win-x64.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

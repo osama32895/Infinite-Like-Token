@@ -1,6 +1,6 @@
 ﻿<div align="center">
 
-# ⚡ Infinite-Lite-Token
+# ⚡ Infinite-Like-Token
 ### The Ultimate Open-Source Zero-Cost Multi-Agent AI Coding Hub & Universal Proxy
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -16,7 +16,7 @@
 
 ## 🌟 Overview
 
-**Infinite-Lite-Token** combines the Free Claude Code (FCC) local bridge concept with LiteLLM's multi-key load-balancing proxy and a dynamic Task Complexity Classifier. It allows developers and non-technical users alike to leverage elite AI models (DeepSeek-R1, Llama 3.3 70B, Gemini 2.5 Pro/Flash) indefinitely across multiple free-tier provider accounts without paying a dime.
+**Infinite-Like-Token** combines the Free Claude Code (FCC) local bridge concept with LiteLLM's multi-key load-balancing proxy and a dynamic Task Complexity Classifier. It allows developers and non-technical users alike to leverage elite AI models (DeepSeek-R1, Llama 3.3 70B, Gemini 2.5 Pro/Flash) indefinitely across multiple free-tier provider accounts without paying a dime.
 
 ---
 
@@ -24,7 +24,7 @@
 
 ```ascii
 ┌────────────────────────────────────────────────────────────────────────┐
-│                       Infinite-Lite-Token WPF UI                       │
+│                       Infinite-Like-Token WPF UI                       │
 │  (Setup Wizard | Key Vault | Monster Coding Chat | REA Studio)         │
 └──────────────────────────────────┬─────────────────────────────────────┘
                                    │ IPC / HTTP (127.0.0.1:4000)
@@ -50,7 +50,7 @@ Google AI Studio             Groq / Nvidia NIM             OpenRouter / Cerebras
 ## ✨ Key Features
 
 1. **Zero-Touch Dependency Bootstrapper (`RuntimeBootstrapper.cs`)**:
-   - Automatically detects or downloads portable Python 3.11 and Node.js 22 into `%LocalAppData%/InfiniteLiteToken/runtime`.
+   - Automatically detects or downloads portable Python 3.11 and Node.js 22 into `%LocalAppData%/InfiniteLikeToken/runtime`.
    - Silently provisions `litellm[proxy]`, `uvicorn`, `mcp`, `@musistudio/claude-code-router`, `@anthropic-ai/claude-code`, `@openai/codex`, and `rea-agents`.
 2. **Infinite Key Pool Vault (`KeyVaultService.cs`)**:
    - Stores API keys securely at rest using Windows DPAPI (`ProtectedData.Protect`).
@@ -89,8 +89,8 @@ npx infiniteliketoken
 ```
 
 ### Option B: Download Standalone Windows Executable
-1. Download `InfiniteLiteToken-win-x64.zip` from the Releases page.
-2. Extract and run `InfiniteLiteToken.UI.exe`.
+1. Download `InfiniteLikeToken-win-x64.zip` from the Releases page.
+2. Extract and run `InfiniteLikeToken.UI.exe`.
 3. Navigate to **Setup & Runtime Wizard** and click **⚡ 1-Click Auto-Install & Repair Everything**.
 4. Add your free API keys in **Infinite Key Pool**, and start coding in **Monster Coding Chat**!
 

@@ -2,7 +2,7 @@
 
 ## 1. How to Add New Free Providers
 To add a new AI provider to the system:
-1. **Update `ProviderType` Enum**: Add the provider identifier in `src/InfiniteLiteToken.Core/Models/ProviderType.cs`.
+1. **Update `ProviderType` Enum**: Add the provider identifier in `src/InfiniteLikeToken.Core/Models/ProviderType.cs`.
 2. **Update Validation Logic**: In `KeyVaultService.cs`, add a new case in `BuildValidationRequest` pointing to the provider's `/models` endpoint and parsing routine in `ParseModelsFromResponse`.
 3. **Update Config Builder**: In `LiteLlmConfigBuilder.cs`, add the corresponding model mappings inside `AppendDeploymentsForKey` for each model tier (`tier-pro`, `tier-flash`, `tier-lite`, `tier-rea`).
 

@@ -1,0 +1,109 @@
+<UserControl xmlns:helpers="clr-namespace:InfiniteLikeToken.UI.Helpers" x:Class="InfiniteLikeToken.UI.Views.KeyVaultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="900">
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Infinite Key Pool Vault" FontSize="26" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <TextBlock Text="Manage and automatically rotate your free provider API keys with DPAPI hardware-level encryption." FontSize="14" Foreground="#9CA3AF" Margin="0,4,0,0"/>
+        </StackPanel>
+
+        <!-- Toolbar & Quick Links -->
+        <Border Grid.Row="1" Background="#1E232A" CornerRadius="8" Padding="16" Margin="0,0,0,16" BorderBrush="#2D3748" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Provider:" VerticalAlignment="Center" Foreground="#E5E7EB" Margin="0,0,12,0"/>
+                <ComboBox Grid.Column="1" Width="170" SelectedItem="{Binding SelectedProvider}"
+                          ItemsSource="{Binding Source={StaticResource ProviderEnumValues}}"
+                          Background="#2D3748" Foreground="#FFFFFF" Padding="6"/>
+
+                <Button Grid.Column="2" Content="Get Free Key ↗" Command="{Binding OpenGetFreeKeyLinkCommand}"
+                        HorizontalAlignment="Left" Margin="16,0,0,0" Foreground="#38BDF8" Background="Transparent" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
+
+                <Button Grid.Column="3" Content="📋 Bulk Paste Keys" Command="{Binding ShowBulkModalCommand}"
+                        Background="#2563EB" Foreground="#FFFFFF" Padding="14,8" BorderThickness="0" Margin="0,0,8,0" Cursor="Hand" FontWeight="SemiBold"/>
+
+                <Button Grid.Column="4" Content="🧪 Test All Keys" Command="{Binding TestAllKeysCommand}"
+                        Background="#059669" Foreground="#FFFFFF" Padding="14,8" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
+            </Grid>
+        </Border>
+
+        <!-- Live Key Grid -->
+        <Border Grid.Row="2" Background="#1E232A" CornerRadius="8" Padding="8" BorderBrush="#2D3748" BorderThickness="1">
+            <DataGrid helpers:DataGridStateTracker.StateId="KeyVaultViewGrid" ItemsSource="{Binding Keys}" AutoGenerateColumns="False" CanUserAddRows="False"
+                      Background="Transparent" RowBackground="#1E232A" AlternatingRowBackground="#242B35"
+                      Foreground="#E5E7EB" GridLinesVisibility="Horizontal" HorizontalGridLinesBrush="#2D3748"
+                      BorderThickness="0" HeadersVisibility="Column">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nickname" Binding="{Binding Nickname}" Width="160"/>
+                    <DataGridTextColumn Header="Provider" Binding="{Binding Provider}" Width="140"/>
+                <DataGridTextColumn Header="Coding Models" Binding="{Binding ActiveModelsCount}" Width="Auto" Foreground="#38BDF8"/>
+                    <DataGridTemplateColumn Header="Status Badge" Width="140">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="4" Padding="6,2" HorizontalAlignment="Left" Background="#064E3B">
+                                    <TextBlock Text="{Binding HealthStatus}" Foreground="#34D399" FontWeight="Bold" FontSize="12"/>
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Requests Today" Binding="{Binding RequestsToday}" Width="120"/>
+                    <DataGridTextColumn Header="Last Cooldown" Binding="{Binding LastRateLimitedAt, StringFormat='HH:mm:ss'}" Width="140"/>
+                    <DataGridTemplateColumn Header="Actions" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Command="{Binding DataContext.RemoveKeyCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}" Background="#EF4444" Foreground="#FFFFFF" Padding="8,2" BorderThickness="0" Cursor="Hand"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <!-- Status Footer -->
+        <TextBlock Grid.Row="3" Text="{Binding StatusNotification}" Foreground="#9CA3AF" Margin="0,12,0,0"/>
+
+        <!-- Bulk Import Modal Overlay -->
+        <Grid Grid.RowSpan="4" Background="#AA000000" Visibility="{Binding IsBulkModalOpen, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Border Width="550" Height="420" Background="#1E232A" CornerRadius="12" Padding="24" BorderBrush="#3B82F6" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Margin="0,0,0,12">
+                        <TextBlock Text="Bulk Import API Keys" FontSize="20" FontWeight="Bold" Foreground="#FFFFFF"/>
+                        <TextBlock Text="Paste multiple keys below, one key per line (e.g., 10-15 keys at once):" Foreground="#9CA3AF" FontSize="13" Margin="0,4,0,0"/>
+                    </StackPanel>
+                    <TextBox Grid.Row="1" Text="{Binding BulkKeysText, UpdateSourceTrigger=PropertyChanged}"
+                             AcceptsReturn="True" TextWrapping="Wrap" Background="#0F1318" Foreground="#E5E7EB"
+                             BorderBrush="#2D3748" Padding="12" FontFamily="Consolas" FontSize="13"/>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+                        <Button Content="Cancel" Command="{Binding CloseBulkModalCommand}" Background="#374151" Foreground="#FFFFFF" Padding="14,8" Margin="0,0,8,0" BorderThickness="0" Cursor="Hand"/>
+                        <Button Content="Import Keys" Command="{Binding ConfirmBulkImportCommand}" Background="#2563EB" Foreground="#FFFFFF" Padding="14,8" BorderThickness="0" Cursor="Hand" FontWeight="Bold"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

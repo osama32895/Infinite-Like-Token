@@ -1,4 +1,4 @@
 echo off
 cls
-dotnet build InfiniteLiteToken.sln
+dotnet build InfiniteLikeToken.sln
 exit

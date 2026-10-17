@@ -1,6 +1,0 @@
-<Solution>
-  <Folder Name="/src/">
-    <Project Path="src/InfiniteLiteToken.Core/InfiniteLiteToken.Core.csproj" />
-    <Project Path="src/InfiniteLiteToken.UI/InfiniteLiteToken.UI.csproj" />
-  </Folder>
-</Solution>

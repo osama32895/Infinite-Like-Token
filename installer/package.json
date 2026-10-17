@@ -1,12 +1,12 @@
 ﻿{
   "name": "infinite-lite-token",
   "version": "1.0.0",
-  "description": "Infinite-Lite-Token portable bootstrapper for Windows and CLI agents",
+  "description": "Infinite-Like-Token portable bootstrapper for Windows and CLI agents",
   "main": "bootstrap.js",
   "bin": {
     "infinite-lite-token": "./bootstrap.js"
   },
   "keywords": ["claude-code", "litellm", "rea", "ai-router", "infinite-tokens"],
-  "author": "Infinite-Lite-Token Contributors",
+  "author": "Infinite-Like-Token Contributors",
   "license": "MIT"
 }

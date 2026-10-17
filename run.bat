@@ -1,4 +1,4 @@
 echo off
 cls
-dotnet run --project src/InfiniteLiteToken.UI/InfiniteLiteToken.UI.csproj
+dotnet run --project src/InfiniteLikeToken.UI/InfiniteLikeToken.UI.csproj
 exit

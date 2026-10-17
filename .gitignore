@@ -56,3 +56,27 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 package.json
+
+# IDE / Editor folders
+.vs/
+.vscode/
+.vscode/settings.json
+.vs/ProjectEvaluation/infinitelitetoken.strings.v10.bin
+.vs/ProjectEvaluation/infinitelitetoken.projects.v10.bin
+.vs/ProjectEvaluation/infinitelitetoken.metadata.v10.bin
+.vs/InfiniteLiteToken.slnx/v18/DocumentLayout.json
+.vs/InfiniteLiteToken.slnx/v18/DocumentLayout.backup.json
+.vs/InfiniteLiteToken.slnx/v18/.suo
+.vs/InfiniteLiteToken.slnx/v18/.futdcache.v2
+.vs/InfiniteLiteToken.slnx/FileContentIndex/e13b755c-b605-4dde-95b3-cac564802e8b.vsidx
+.vs/InfiniteLiteToken.slnx/DesignTimeBuild/.dtbcache.v2
+.vscode/settings.json
+.vs/ProjectEvaluation/infinitelitetoken.strings.v10.bin
+.vs/ProjectEvaluation/infinitelitetoken.projects.v10.bin
+.vs/ProjectEvaluation/infinitelitetoken.metadata.v10.bin
+.vs/InfiniteLiteToken.slnx/v18/DocumentLayout.json
+.vs/InfiniteLiteToken.slnx/v18/DocumentLayout.backup.json
+.vs/InfiniteLiteToken.slnx/v18/.suo
+.vs/InfiniteLiteToken.slnx/v18/.futdcache.v2
+.vs/InfiniteLiteToken.slnx/FileContentIndex/e13b755c-b605-4dde-95b3-cac564802e8b.vsidx
+.vs/InfiniteLiteToken.slnx/DesignTimeBuild/.dtbcache.v2

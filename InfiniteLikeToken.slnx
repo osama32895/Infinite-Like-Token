@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/InfiniteLikeToken.Core/InfiniteLikeToken.Core.csproj" />
+    <Project Path="src/InfiniteLikeToken.UI/InfiniteLikeToken.UI.csproj" />
+  </Folder>
+</Solution>

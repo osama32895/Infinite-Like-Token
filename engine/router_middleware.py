@@ -1,5 +1,5 @@
 """
-Infinite-Lite-Token Intelligent AI Routing Middleware for LiteLLM
+Infinite-Like-Token Intelligent AI Routing Middleware for LiteLLM
 Classifies incoming requests to 'infinite-auto' into optimal model tiers:
   - tier-rea: Reverse engineering, binary analysis, decompilation, disassembly
   - tier-pro: High-complexity architecture, large code context (>4000 tokens), deep debugging
@@ -42,7 +42,7 @@ class InfiniteTaskClassifier(CustomLogger):
             if "metadata" not in data:
                 data["metadata"] = {}
             data["metadata"]["infinite_selected_tier"] = routed_tier
-            print(f"[InfiniteLiteToken] Request classified -> routed to tier: {routed_tier}")
+            print(f"[InfiniteLikeToken] Request classified -> routed to tier: {routed_tier}")
 
         return data
 
