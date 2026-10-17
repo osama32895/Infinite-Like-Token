@@ -9,7 +9,7 @@
     <Application.Resources>
         <!-- Strict DataGrid Header Style to Override OS-Level Hooks -->
         <Style TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="#0F172A"/>
+            <Setter Property="Background" Value="#0B2050"/>
             <Setter Property="Foreground" Value="#94A3B8"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Padding" Value="10,8"/>

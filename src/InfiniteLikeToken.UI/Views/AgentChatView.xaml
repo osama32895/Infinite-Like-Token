@@ -125,8 +125,14 @@
                                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                                 <TextBlock Text="{Binding ModelUsed}" Foreground="#10B981" FontSize="11" Margin="0,0,10,0" VerticalAlignment="Center"/>
                                                 
+                                                <!-- Copy Button (All Messages) -->
+                                                <Button Content="📋" 
+                                                        Command="{Binding DataContext.CopyMessageCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                                        CommandParameter="{Binding}"
+                                                        Background="Transparent" BorderBrush="#4B5563" BorderThickness="1" Foreground="#9CA3AF" FontSize="11" Padding="6,2" Margin="0,0,6,0" Cursor="Hand" ToolTip="Copy message to clipboard" />
+                                                
                                                 <!-- Edit Button (User Only) -->
-                                                <Button Content="✏️ Edit" 
+                                                <Button Content="✏️" 
                                                         Command="{Binding DataContext.EditMessageCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
                                                         CommandParameter="{Binding}" 
                                                         Background="Transparent" BorderBrush="#4B5563" BorderThickness="1" Foreground="#9CA3AF" FontSize="11" Padding="6,2" Cursor="Hand" ToolTip="Edit message and reset history below it">
@@ -143,7 +149,7 @@
                                                 </Button>
 
                                                 <!-- Branch Button (AI/System Only) -->
-                                                <Button Content="🌿 Branch" 
+                                                <Button Content="🌿" 
                                                         Command="{Binding DataContext.BranchChatCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
                                                         CommandParameter="{Binding}" 
                                                         Background="Transparent" BorderBrush="#4B5563" BorderThickness="1" Foreground="#9CA3AF" FontSize="11" Padding="6,2" Cursor="Hand" Margin="5,0,0,0" ToolTip="Copy chat up to here into a new session">

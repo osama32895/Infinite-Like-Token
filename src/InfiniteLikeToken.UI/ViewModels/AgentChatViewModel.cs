@@ -391,7 +391,23 @@ public partial class AgentChatViewModel : ObservableObject
     }
 
     [RelayCommand]
-    public void EditMessage(AgentMessage message)
+        public void CopyMessage(AgentMessage message)
+        {
+            if (message != null && !string.IsNullOrWhiteSpace(message.Content))
+            {
+                try 
+                {
+                    System.Windows.Clipboard.SetText(message.Content);
+                } 
+                catch 
+                { 
+                    // Failsafe in case another app has a lock on the Windows clipboard
+                }
+            }
+        }
+
+        [RelayCommand]
+        public void EditMessage(AgentMessage message)
     {
         if (IsStreaming) return;
         

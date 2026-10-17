@@ -25,18 +25,18 @@
 
                 <!-- Brand Header -->
                 <StackPanel Grid.Row="0" Margin="24,28,24,24">
-                    <TextBlock Text="⚡ INFINITE" FontSize="22" FontWeight="Black" Foreground="#6366F1"/>
-                    <TextBlock Text="LITE-TOKEN" FontSize="18" FontWeight="ExtraBold" Foreground="#FFFFFF"/>
+                    <TextBlock Text="INFINITE" FontSize="22" FontWeight="Black" Foreground="#6366F1"/>
+                    <TextBlock Text="LIKE-TOKEN" FontSize="18" FontWeight="ExtraBold" Foreground="#FFFFFF"/>
                     <TextBlock Text="Zero-Cost Multi-Agent Hub" FontSize="11" Foreground="#6B7280" Margin="0,4,0,0"/>
                 </StackPanel>
 
                 <!-- Navigation Menu -->
                 <StackPanel Grid.Row="1" Margin="12,0">
-                    <Button Content="💬 Monster Coding Chat" Command="{Binding NavigateCommand}" CommandParameter="AgentChat"
+                    <Button Content="💬 Main Coding Chat" Command="{Binding NavigateCommand}" CommandParameter="AgentChat"
                             HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
                             FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
 
-                    <Button Content="🔑 Infinite Key Pool" Command="{Binding NavigateCommand}" CommandParameter="KeyVault"
+                    <Button Content="🔑 Key Pool" Command="{Binding NavigateCommand}" CommandParameter="KeyVault"
                             HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
                             FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
 
