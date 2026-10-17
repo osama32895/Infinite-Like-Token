@@ -1,0 +1,76 @@
+<UserControl x:Class="InfiniteLiteToken.UI.Views.ReverseEngView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="950">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="REA Studio — Reverse Engineer Anything" FontSize="26" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <TextBlock Text="Decompile, trace functions, inspect binaries (.dll, .exe, .apk, .wasm), and reconstruct source code with AI." FontSize="14" Foreground="#9CA3AF" Margin="0,4,0,0"/>
+        </StackPanel>
+
+        <!-- Drag and Drop Target Area -->
+        <Border Grid.Row="1" Background="#1E232A" CornerRadius="10" Padding="18" Margin="0,0,0,16" BorderBrush="#3B82F6" BorderThickness="1.5"
+                AllowDrop="True" Drop="OnTargetDrop" MouseLeftButtonUp="OnDropZoneClick" Cursor="Hand">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="📁 Drag and Drop target .exe, .dll, .apk, or .wasm here" FontSize="16" FontWeight="SemiBold" Foreground="#93C5FD" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding StatusMessage}" FontSize="13" Foreground="#9CA3AF" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Split View: Discovered Symbols vs Reconstructed Source -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left: Modules & Symbols -->
+            <Border Grid.Column="0" Background="#1E232A" CornerRadius="8" Padding="12" BorderBrush="#2D3748" BorderThickness="1">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" Text="Discovered Artifacts &amp; Sections" FontWeight="Bold" Foreground="#E5E7EB" Margin="0,0,0,10"/>
+                    <ListBox ItemsSource="{Binding DiscoveredModules}" Background="Transparent" BorderThickness="0" Foreground="#D1D5DB" FontFamily="Consolas" FontSize="12"/>
+                </DockPanel>
+            </Border>
+            <!-- Right: Reconstruction & Action Presets -->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Preset 1-Click Action Buttons -->
+                <WrapPanel Grid.Row="0" Margin="0,0,0,12">
+                    <Button Content="🏛 Explain Architecture" Command="{Binding RunPresetCommand}" CommandParameter="Architecture"
+                            Background="#2563EB" Foreground="#FFFFFF" Padding="12,7" Margin="0,0,8,8" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
+                    <Button Content="⚡ Reconstruct Source" Command="{Binding RunPresetCommand}" CommandParameter="ReconstructSource"
+                            Background="#7C3AED" Foreground="#FFFFFF" Padding="12,7" Margin="0,0,8,8" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
+                    <Button Content="🌐 Analyze Protocols" Command="{Binding RunPresetCommand}" CommandParameter="Protocols"
+                            Background="#059669" Foreground="#FFFFFF" Padding="12,7" Margin="0,0,8,8" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
+                    <Button Content="🛡 Security Audit" Command="{Binding RunPresetCommand}" CommandParameter="SecurityAudit"
+                            Background="#DC2626" Foreground="#FFFFFF" Padding="12,7" Margin="0,0,8,8" BorderThickness="0" Cursor="Hand" FontWeight="SemiBold"/>
+                </WrapPanel>
+
+                <!-- Output Editor/Viewer -->
+                <Border Grid.Row="1" Background="#0F1318" CornerRadius="8" Padding="12" BorderBrush="#2D3748" BorderThickness="1">
+                    <TextBox Text="{Binding ReconstructionOutput}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap"
+                             Background="Transparent" Foreground="#E5E7EB" BorderThickness="0" FontFamily="Consolas" FontSize="13"/>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- Footer Info -->
+        <TextBlock Grid.Row="3" Text="Powered by REA MCP Tools and ilspycmd integration." Foreground="#6B7280" FontSize="12" Margin="0,10,0,0"/>
+    </Grid>
+</UserControl>

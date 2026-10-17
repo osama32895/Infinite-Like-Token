@@ -1,0 +1,74 @@
+﻿<Window x:Class="InfiniteLiteToken.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfiniteLiteToken.UI"
+        mc:Ignorable="d"
+        Title="Infinite-Lite-Token — Universal AI Engine &amp; REA Studio"
+        Height="800" Width="1200" MinHeight="600" MinWidth="900"
+        WindowStartupLocation="CenterScreen" Background="#0F1318">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar Navigation -->
+        <Border Grid.Column="0" Background="#14181E" BorderBrush="#1F2937" BorderThickness="0,0,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Brand Header -->
+                <StackPanel Grid.Row="0" Margin="24,28,24,24">
+                    <TextBlock Text="⚡ INFINITE" FontSize="22" FontWeight="Black" Foreground="#6366F1"/>
+                    <TextBlock Text="LITE-TOKEN" FontSize="18" FontWeight="ExtraBold" Foreground="#FFFFFF"/>
+                    <TextBlock Text="Zero-Cost Multi-Agent Hub" FontSize="11" Foreground="#6B7280" Margin="0,4,0,0"/>
+                </StackPanel>
+
+                <!-- Navigation Menu -->
+                <StackPanel Grid.Row="1" Margin="12,0">
+                    <Button Content="💬 Monster Coding Chat" Command="{Binding NavigateCommand}" CommandParameter="AgentChat"
+                            HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
+                            FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+
+                    <Button Content="🔑 Infinite Key Pool" Command="{Binding NavigateCommand}" CommandParameter="KeyVault"
+                            HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
+                            FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+
+                    <Button Content="🔍 REA Studio (Reverse Eng)" Command="{Binding NavigateCommand}" CommandParameter="ReverseEng"
+                            HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
+                            FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+
+                    <Button Content="⚙ Setup &amp; Runtime Wizard" Command="{Binding NavigateCommand}" CommandParameter="SetupWizard"
+                            HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
+                            FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+							
+					<Button Content="🔌 Plugin Store" Command="{Binding NavigateCommand}" CommandParameter="PluginStore"
+                            HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
+                            FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+
+                    <Button Content="📊 Status &amp; Usage" Command="{Binding NavigateCommand}" CommandParameter="StatusCenter"
+                            HorizontalContentAlignment="Left" Padding="16,12" Margin="0,4" Background="Transparent" Foreground="#E5E7EB"
+                            FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand"/>
+                </StackPanel>
+
+                <!-- Proxy Status Badge in Sidebar Footer -->
+                <Border Grid.Row="2" Background="#1A202C" Margin="16,16,16,20" CornerRadius="8" Padding="12" BorderBrush="#2D3748" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="Local Gateway Proxy" FontSize="12" FontWeight="Bold" Foreground="#38BDF8"/>
+                        <TextBlock Text="http://127.0.0.1:4000" FontSize="11" Foreground="#94A3B8" Margin="0,2,0,0"/>
+                        <TextBlock Text="Status: Active &amp; Ready" FontSize="11" Foreground="#10B981" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Main Content Area -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentView}" Margin="0"/>
+    </Grid>
+</Window>
