@@ -85,7 +85,7 @@ Google AI Studio             Groq / Nvidia NIM             OpenRouter / Cerebras
 
 ### Option A: Using `npx` (Node required)
 ```bash
-npx infinite-lite-token
+npx infiniteliketoken
 ```
 
 ### Option B: Download Standalone Windows Executable
